@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopInfoBar.App", "DesktopInfoBar.App\DesktopInfoBar.App.csproj", "{24A00403-19A7-4721-83D4-F3ACE063F647}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopInfoBar.App", "src\DesktopInfoBar.App\DesktopInfoBar.App.csproj", "{24A00403-19A7-4721-83D4-F3ACE063F647}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
