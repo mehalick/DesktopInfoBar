@@ -1,5 +1,8 @@
 ﻿@page "/"
 
 <main class="d-flex justify-content-center align-content-center">
-    <div class="align-self-center fs-1">@_time.ToString("HH:mm")</div>
+    <div class="align-self-center fs-1">
+        <i class="fa-light fa-2xs @_icon"></i>
+        @_time.ToString("HH:mm")
+    </div>
 </main>
