@@ -5,26 +5,28 @@ namespace DesktopInfoBar.App.Components.Pages;
 
 public partial class Home : ComponentBase
 {
-    private TimeOnly _time = TimeOnly.FromDateTime(DateTime.Now);
+    private TimeOnly _timeLtz = TimeOnly.FromDateTime(DateTime.Now);
+    private TimeOnly _timeUtc = TimeOnly.FromDateTime(DateTime.UtcNow);
     private string _icon = "fa-clock";
 
     private static readonly Timer _timer = new Timer(1000);
 
     protected override void OnInitialized()
     {
-        _icon = _clocks.FirstOrDefault(i => i.Key < _time).Value;
+        _icon = _clocks.FirstOrDefault(i => i.Key < _timeLtz).Value;
 
         _timer.Elapsed += async (_, _) =>
         {
             var now = TimeOnly.FromDateTime(DateTime.Now);
 
-            if (AreSame(_time, now))
+            if (AreSame(_timeLtz, now))
             {
                 return;
             }
 
-            _time = TimeOnly.FromDateTime(DateTime.Now);
-            _icon = _clocks.FirstOrDefault(i => i.Key < _time).Value;
+            _timeLtz = TimeOnly.FromDateTime(DateTime.Now);
+            _timeUtc = TimeOnly.FromDateTime(DateTime.UtcNow);
+            _icon = _clocks.FirstOrDefault(i => i.Key < _timeLtz).Value;
 
             await InvokeAsync(StateHasChanged);
         };
